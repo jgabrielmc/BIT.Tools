@@ -32,6 +32,17 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>D:\Proyectos\BITPERFECT\oeschle\OESCD.BP.Solution_2208\OESCD.BP\bin\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Proyectos\BITPERFECT\oeschle\OESCD.BP.Solution_2208\OESCD.BP\bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>D:\Proyectos\BITPERFECT\oeschle\OESCD.BP.Solution_2208\OESCD.BP\bin\System.Web.WebPages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,8 +56,17 @@
     <Compile Include="Extensions\DecimalExtension.cs" />
     <Compile Include="Extensions\IntegerExtension.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="General\Encriptacion.cs" />
+    <Compile Include="General\GeneradorPassword.cs" />
+    <Compile Include="General\MessageHelpers.cs" />
+    <Compile Include="General\ModelBinderHelpers.cs" />
+    <Compile Include="Html\AppWebViewPage.cs" />
+    <Compile Include="Html\DataHelper.cs" />
+    <Compile Include="Html\HtmlHelpersExtensions.cs" />
+    <Compile Include="Html\TemplateRender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

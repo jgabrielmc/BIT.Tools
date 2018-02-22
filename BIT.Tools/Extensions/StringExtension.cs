@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace BIT.Tools.Extensions
 {
@@ -17,6 +16,25 @@ namespace BIT.Tools.Extensions
             System.Globalization.CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
             System.Globalization.TextInfo textInfo = cultureInfo.TextInfo;
             return textInfo.ToTitleCase(text);
+        }
+
+        public static String toSlug(this string text)
+        {
+            String value = text.Normalize(NormalizationForm.FormD).Trim();
+            StringBuilder builder = new StringBuilder();
+
+            var valor = text.ToCharArray();
+            for (int i = 0; i < valor.Length; i++)
+                if (CharUnicodeInfo.GetUnicodeCategory(valor[i]) != UnicodeCategory.NonSpacingMark)
+                    builder.Append(valor[i]);
+
+            value = builder.ToString();
+
+            byte[] bytes = Encoding.GetEncoding("Cyrillic").GetBytes(text);
+
+            value = Regex.Replace(Regex.Replace(Encoding.ASCII.GetString(bytes), @"\s{2,}|[^\w]", " ", RegexOptions.ECMAScript).Trim(), @"\s+", "_");
+
+            return value.ToLowerInvariant();
         }
     }
 }
